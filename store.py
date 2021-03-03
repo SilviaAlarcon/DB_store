@@ -5,7 +5,7 @@ class DataBase:
         self.connection = pymysql.connect(
             host="localhost",
             user="root",
-            password="test1",
+            password="supersecreta",
             database="store" 
         )
 
@@ -51,7 +51,7 @@ class DataBase:
 
     #Mostrar cantidad de productos ordenados por categoría
     def order_by_category(self):
-        sql = "SELECT id_category, COUNT(*) FROM products GROUP BY id_category ORDER BY COUNT(*) DESC"
+        sql = "SELECT c.id_category, c.name AS category_name, COUNT(c.id_category) AS quantity_products FROM products AS p JOIN categories AS c ON c.id_category = p.id_category GROUP BY p.id_category ORDER BY quantity_products DESC"
         self.cursor.execute(sql)
         datos = self.cursor.fetchall()
         print(datos)
