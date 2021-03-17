@@ -40,7 +40,7 @@ class DataBase:
         sql = "SELECT SUM(value) FROM products"
         self.cursor.execute(sql)
         datos = self.cursor.fetchall()
-        print(datos)
+        return datos
 
     #Mostrar cantidad total de productos
     def total_products(self):

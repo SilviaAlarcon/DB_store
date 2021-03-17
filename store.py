@@ -55,7 +55,11 @@ def run_option(option):
         except:
             print('Ocurrió un error')    
     elif option == 5:
-        pass
+        try:
+            total_value = db.total_value()
+            print(f'El precio total de los productos es: {total_value}')
+        except:
+            print('Ocurrió un error') 
     elif option == 6:
         pass
     elif option == 7:
