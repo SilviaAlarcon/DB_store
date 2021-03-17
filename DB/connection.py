@@ -33,7 +33,7 @@ class DataBase:
         sql = "SELECT * FROM products WHERE country_of_origin = '{}'".format(country_of_origin)
         self.cursor.execute(sql)
         datos = self.cursor.fetchall()
-        print(datos)
+        return datos
 
     #mostrar el valor total de los productos
     def total_value(self):
@@ -47,7 +47,7 @@ class DataBase:
         sql = "SELECT COUNT(*) FROM products"
         self.cursor.execute(sql)
         datos = self.cursor.fetchall()
-        print(datos)
+        return datos
 
     #Mostrar cantidad de productos ordenados por categoría
     def order_by_category(self):

@@ -1,4 +1,5 @@
 from DB.connection import DataBase
+import funtions
 
 def menu():
     print('-' * 20 + ' MENU ' + '-' * 20)
@@ -29,14 +30,15 @@ def run_option(option):
     elif option == 3:
         pass
     elif option == 4:
+        country = input('Ingresa un país: ')
         try:
-            products = db.total_products()
+            products = db.products_by_country(country)
             if len(products) > 0:
-                pass
+                funtions.products_by_country(products)
             else: 
                 print('No se encontraron productos')
         except:
-            pass    
+            print('Ocurrió un error')    
     elif option == 5:
         pass
     elif option == 6:
