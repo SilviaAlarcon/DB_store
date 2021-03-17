@@ -6,6 +6,7 @@ def products_by_country(products):
         print(data.format(count, i[0], i[1], i[2], i[3], i[4]))
         count += 1
 
+
 def insert_product():
     name = input('Ingresa el nombre del producto: ')
     value = float(input('Ingresa el precio: '))
@@ -23,3 +24,11 @@ def insert_store():
 
     store = (name, address, country)
     return store
+
+
+def insert_category():
+    name = input('Ingresa el nombre de la categoría: ')
+    id_store = int(input('Ingresa el ID de la tienda: '))
+
+    category = (name, id_store)
+    return category

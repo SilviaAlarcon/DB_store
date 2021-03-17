@@ -31,7 +31,12 @@ def run_option(option):
         except: 
             print('Ocurrió un error') 
     elif option == 2:
-        pass
+        category = funtions.insert_category()
+        try:
+            db.insert_category(category)
+            print('\nCategoría agregada')
+        except: 
+            print('Ocurrió un error') 
     elif option == 3:
         product = funtions.insert_product()
         try:

@@ -18,14 +18,14 @@ class DataBase:
         self.cursor.execute(sql)
         self.connection.commit()
 
-    def insert_category(self, name, id_store):
-        sql = "INSERT INTO categories (name, id_store) VALUES ('{}', '{}')".format(name, id_store)
+    def insert_category(self, category):
+        sql = "INSERT INTO categories (name, id_store) VALUES ('{}', '{}')".format(category[0], category[1])
         self.cursor.execute(sql)
         self.connection.commit()
     
     def insert_product(self, product):
-        sql = "INSERT INTO products (name, value, country_of_origin, id_category) VALUES ('{0}', '{1}', '{2}', '{3}')"
-        self.cursor.execute(sql.format(product[0], product[1], product[2], product[3]))
+        sql = "INSERT INTO products (name, value, country_of_origin, id_category) VALUES ('{}', '{}', '{}', '{}')".format(product[0], product[1], product[2], product[3])
+        self.cursor.execute(sql)
         self.connection.commit()
 
     #Mostrar todos los productos de acuerdo a un país
