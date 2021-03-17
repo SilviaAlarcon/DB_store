@@ -56,14 +56,31 @@ def run_option(option):
             print('Ocurrió un error')    
     elif option == 5:
         try:
-            total_value = db.total_value()
-            print(f'El precio total de los productos es: {total_value}')
+            total = db.total_value()
+            if len(total) > 0:
+                funtions.total_value(total)
+            else: 
+                print('No se encontraron productos')
         except:
             print('Ocurrió un error') 
     elif option == 6:
-        pass
+        try:
+            total = db.total_products()
+            if len(total) > 0:
+                funtions.total_products(total)
+            else: 
+                print('No se encontraron productos')
+        except:
+            print('Ocurrió un error') 
     elif option == 7:
-        pass
+        try:
+            total = db.order_by_category()
+            if len(total) > 0:
+                funtions.order_by_category(total)
+            else: 
+                print('No se encontraron categorías')
+        except:
+            print('Ocurrió un error') 
     elif option == 8:
         pass
     else:

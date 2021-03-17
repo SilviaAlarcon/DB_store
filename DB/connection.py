@@ -10,7 +10,7 @@ class DataBase:
         )
 
         self.cursor = self.connection.cursor()
-        print('Funcionooo :D')
+        #print('Funcionooo :D')
 
     #Generar información para la base de datos
     def insert_store(self, store):
@@ -54,7 +54,7 @@ class DataBase:
         sql = "SELECT c.id_category, c.name AS nombre_categoria, COUNT(p.id_category) AS cantidad_productos FROM categories AS c LEFT JOIN products AS p ON p.id_category = c.id_category GROUP BY c.id_category ORDER BY cantidad_productos DESC;"
         self.cursor.execute(sql)
         datos = self.cursor.fetchall()
-        print(datos)
+        return datos
 
     def close(self):
         self.connection.close()

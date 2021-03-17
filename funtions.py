@@ -32,3 +32,26 @@ def insert_category():
 
     category = (name, id_store)
     return category
+
+def total_value(total):
+    print('-' * 40)
+    for i in total:
+        data = 'Precio total: {0}'
+        print(data.format(i[0]))
+    print('-' * 40)
+
+
+def total_products(total):
+    print('-' * 40)
+    for i in total:
+        data = 'Número total de productos: {0}'
+        print(data.format(i[0]))
+    print('-' * 40)
+
+
+def order_by_category(total):
+    print('-' * 20 + ' Registro por categoría ' + '-' * 20)
+    for i in total:
+        data = 'ID: {0} Nombre de la categoría: {1} | Número de productos: {2}'
+        print(data.format(i[0], i[1], i[2]))
+    print('-' * 40)
