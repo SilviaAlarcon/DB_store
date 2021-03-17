@@ -59,12 +59,3 @@ class DataBase:
     def close(self):
         self.connection.close()
 
-
-database = DataBase()
-#database.insert_category('Labios', 1)
-#database.insert_product('Dekineador', 370.30, 'México', 3)
-#database.products_by_country('México')
-#database.total_products()
-#database.total_value()
-#database.order_by_category()
-database.close()

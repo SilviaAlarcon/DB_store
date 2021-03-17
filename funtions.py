@@ -11,7 +11,7 @@ def insert_product():
     name = input('Ingresa el nombre del producto: ')
     value = float(input('Ingresa el precio: '))
     country_of_origin = input('Ingresa el país de origen: ')
-    id_category = int(input('Ingresa la categoría: '))
+    id_category = int(input('Ingresa el ID de la categoría: '))
 
     product = (name, value, country_of_origin, id_category)
     return product

@@ -81,8 +81,6 @@ def run_option(option):
                 print('No se encontraron categorías')
         except:
             print('Ocurrió un error') 
-    elif option == 8:
-        pass
     else:
         print('Opción inválida')
     
