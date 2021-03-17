@@ -28,7 +28,12 @@ def run_option(option):
     elif option == 2:
         pass
     elif option == 3:
-        pass
+        product = funtions.insert_product()
+        try:
+            db.insert_product(product)
+            print('\nProducto agregado')
+        except: 
+            print('Ocurrió un error') 
     elif option == 4:
         country = input('Ingresa un país: ')
         try:

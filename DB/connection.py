@@ -23,9 +23,9 @@ class DataBase:
         self.cursor.execute(sql)
         self.connection.commit()
     
-    def insert_product(self, name, value, country_of_origin, id_category):
-        sql = "INSERT INTO products (name, value, country_of_origin, id_category) VALUES ('{}', '{}', '{}', '{}')".format(name, value, country_of_origin, id_category)
-        self.cursor.execute(sql)
+    def insert_product(self, product):
+        sql = "INSERT INTO products (name, value, country_of_origin, id_category) VALUES ('{0}', '{1}', '{2}', '{3}')"
+        self.cursor.execute(sql.format(product[0], product[1], product[2], product[3]))
         self.connection.commit()
 
     #Mostrar todos los productos de acuerdo a un país
@@ -65,6 +65,6 @@ database = DataBase()
 #database.insert_product('Dekineador', 370.30, 'México', 3)
 #database.products_by_country('México')
 #database.total_products()
-database.total_value()
+#database.total_value()
 #database.order_by_category()
 database.close()
