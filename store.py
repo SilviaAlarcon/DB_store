@@ -1,70 +1,53 @@
-import pymysql
+from DB.connection import DataBase
 
-class DataBase:
-    def __init__(self):
-        self.connection = pymysql.connect(
-            host="localhost",
-            user="root",
-            password="supersecreta",
-            database="store" 
-        )
+def menu():
+    print('-' * 20 + ' MENU ' + '-' * 20)
+    print('1 - Registrar nueva tienda')
+    print('2 - Agregar producto')
+    print('3 - Crear nueva categoría')
+    print('4 - Mostrar todos los productos por país')
+    print('5 - Mostrar el valor total de los productos')
+    print('6 - Mostrar la cantidad total de productos')
+    print('7 - Mostrar cantidad de productos ordenados por categoría')
+    print('8 - Salir')
+    print('-' * 50)
+    option = int(input('Selecciona una opción: '))
 
-        self.cursor = self.connection.cursor()
-        print('Funcionooo :D')
+    if option < 1 or option > 8:
+        print('Opción inválida')
+    elif option == 8:
+        print('Adiosin')
+    else:
+        run_option(option)
 
-    #Generar información para la base de datos
-    def insert_store(self, name, address, country):
-        sql = "INSERT INTO store (name, address, country) VALUES ('{}', '{}', '{}')".format(name, address, country)
-        self.cursor.execute(sql)
-        self.connection.commit()
-
-    def insert_category(self, name, id_store):
-        sql = "INSERT INTO categories (name, id_store) VALUES ('{}', '{}')".format(name, id_store)
-        self.cursor.execute(sql)
-        self.connection.commit()
+def run_option(option):
+    db = DataBase()
+    if option == 1:
+        pass
+    elif option == 2:
+        pass
+    elif option == 3:
+        pass
+    elif option == 4:
+        try:
+            products = db.total_products()
+            if len(products) > 0:
+                pass
+            else: 
+                print('No se encontraron productos')
+        except:
+            pass    
+    elif option == 5:
+        pass
+    elif option == 6:
+        pass
+    elif option == 7:
+        pass
+    elif option == 8:
+        pass
+    else:
+        print('Opción inválida')
     
-    def insert_product(self, name, value, country_of_origin, id_category):
-        sql = "INSERT INTO products (name, value, country_of_origin, id_category) VALUES ('{}', '{}', '{}', '{}')".format(name, value, country_of_origin, id_category)
-        self.cursor.execute(sql)
-        self.connection.commit()
 
-    #Mostrar todos los productos de acuerdo a un país
-    def products_by_country(self, country_of_origin):
-        sql = "SELECT * FROM products WHERE country_of_origin = '{}'".format(country_of_origin)
-        self.cursor.execute(sql)
-        datos = self.cursor.fetchall()
-        print(datos)
-
-    #mostrar el valor total de los productos
-    def total_value(self):
-        sql = "SELECT SUM(value) FROM products"
-        self.cursor.execute(sql)
-        datos = self.cursor.fetchall()
-        print(datos)
-
-    #Mostrar cantidad total de productos
-    def total_products(self):
-        sql = "SELECT COUNT(*) FROM products"
-        self.cursor.execute(sql)
-        datos = self.cursor.fetchall()
-        print(datos)
-
-    #Mostrar cantidad de productos ordenados por categoría
-    def order_by_category(self):
-        sql = "SELECT c.id_category, c.name AS category_name, COUNT(c.id_category) AS quantity_products FROM products AS p JOIN categories AS c ON c.id_category = p.id_category GROUP BY p.id_category ORDER BY quantity_products DESC"
-        self.cursor.execute(sql)
-        datos = self.cursor.fetchall()
-        print(datos)
-
-    def close(self):
-        self.connection.close()
-
-
-database = DataBase()
-#database.insert_category('Labios', 1)
-#database.insert_product('Dekineador', 370.30, 'México', 3)
-#database.products_by_country('México')
-#database.total_products()
-#database.total_value()
-#database.order_by_category()
-database.close()
+if __name__ == '__main__':
+    menu()
