@@ -13,8 +13,8 @@ class DataBase:
         print('Funcionooo :D')
 
     #Generar información para la base de datos
-    def insert_store(self, name, address, country):
-        sql = "INSERT INTO store (name, address, country) VALUES ('{}', '{}', '{}')".format(name, address, country)
+    def insert_store(self, store):
+        sql = "INSERT INTO store (name, address, country) VALUES ('{}', '{}', '{}')".format(store[0], store[1], store[2])
         self.cursor.execute(sql)
         self.connection.commit()
 

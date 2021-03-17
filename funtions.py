@@ -14,3 +14,12 @@ def insert_product():
 
     product = (name, value, country_of_origin, id_category)
     return product
+
+
+def insert_store():
+    name = input('Ingresa el nombre de la tienda: ')
+    address = input('Ingresa la dirección: ')
+    country = input('Ingresa el país: ')
+
+    store = (name, address, country)
+    return store

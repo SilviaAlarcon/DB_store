@@ -4,8 +4,8 @@ import funtions
 def menu():
     print('-' * 20 + ' MENU ' + '-' * 20)
     print('1 - Registrar nueva tienda')
-    print('2 - Agregar producto')
-    print('3 - Crear nueva categoría')
+    print('2 - Crear nueva categoría')
+    print('3 - Agregar producto')
     print('4 - Mostrar todos los productos por país')
     print('5 - Mostrar el valor total de los productos')
     print('6 - Mostrar la cantidad total de productos')
@@ -24,7 +24,12 @@ def menu():
 def run_option(option):
     db = DataBase()
     if option == 1:
-        pass
+        store = funtions.insert_store()
+        try:
+            db.insert_store(store)
+            print('\nTienda registrada')
+        except: 
+            print('Ocurrió un error') 
     elif option == 2:
         pass
     elif option == 3:
